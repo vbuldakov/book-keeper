@@ -1,0 +1,37 @@
+﻿body {
+    padding-top: 40px;
+    padding-bottom: 40px;
+}
+
+#form-register button {
+    margin-top: 10px;
+}
+
+#form-register .alert {
+    margin-top: 20px;
+}
+
+
+#reg-password {
+    border-bottom-left-radius: 0;
+    border-bottom-right-radius: 0;
+    margin-bottom: -1px;
+}
+
+#reg-confirm-password {
+    border-top-left-radius: 0;
+    border-top-right-radius: 0;
+}
+
+#form-login button {
+    margin-top: 10px;
+}
+
+#form-login .checkbox {
+    font-weight: normal;
+}
+
+#form-login .alert {
+    margin-top: 20px;
+}
+

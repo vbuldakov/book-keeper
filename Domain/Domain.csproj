@@ -1,0 +1,84 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{AEA3E42C-1976-48B9-8FB6-1E12F8FD98DE}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Domain</RootNamespace>
+    <AssemblyName>Domain</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Core\IValidatable.cs" />
+    <Compile Include="Core\IUnitOfWork.cs" />
+    <Compile Include="Core\Repositories\ICreateRepository.cs" />
+    <Compile Include="Core\Repositories\IDeleteRepository.cs" />
+    <Compile Include="Core\Repositories\IReadRepository.cs" />
+    <Compile Include="Core\Repositories\IUpdateRepository.cs" />
+    <Compile Include="Core\Specification\AndSpecification.cs" />
+    <Compile Include="Core\Specification\CompositeSpecification.cs" />
+    <Compile Include="Core\Specification\DirectSpecification.cs" />
+    <Compile Include="Core\Specification\ExpressionBuilder.cs" />
+    <Compile Include="Core\Specification\ISpecification.cs" />
+    <Compile Include="Core\Specification\NotSpecification.cs" />
+    <Compile Include="Core\Specification\OrSpecification.cs" />
+    <Compile Include="Core\Specification\ParametersRebinder.cs" />
+    <Compile Include="Core\Specification\Specification.cs" />
+    <Compile Include="Core\Specification\TrueSpecification.cs" />
+    <Compile Include="Expences\Expence.cs" />
+    <Compile Include="Expences\ExpenceCategory.cs" />
+    <Compile Include="Expences\ExpenceCategorySpecifications.cs" />
+    <Compile Include="Expences\ExpenceSpecifications.cs" />
+    <Compile Include="Expences\IExpenceCategoryRepository.cs" />
+    <Compile Include="Expences\IExpenceRepository.cs" />
+    <Compile Include="IUserRepository.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Statistics\CategorySummary.cs" />
+    <Compile Include="Statistics\IStatisticsRepository.cs" />
+    <Compile Include="Statistics\Summary.cs" />
+    <Compile Include="User.cs" />
+    <Compile Include="UserSpecifications.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Core\Specification\SpecificationsDesignNotes.txt" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

@@ -1,0 +1,45 @@
+﻿@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html ng-app="bk.app">
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Your personal bookkeeper</title>
+
+    @*Latest compiled and minified CSS*@
+    @*<link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css">*@
+    @*Optional theme*@
+    @*<link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap-theme.min.css">*@
+
+    @Styles.Render("~/Content/lib")
+    @Styles.Render("~/Content/app")
+
+</head>
+<body>
+
+    @Html.Partial("navigation")
+
+    <div class="container" >
+        @Html.Partial("expences-filter")
+        <div ui-view></div>
+    </div>
+
+    @*used for ajax in AddAntiForgeryToken()*@
+    <form id="__AjaxAntiForgeryForm" action="#" method="post">@Html.AntiForgeryToken()</form>
+
+    <script type="text/ng-template" id="/view-expences">
+        @Html.Partial("expence-add-quick")
+        @Html.Partial("expences-list")
+    </script>
+
+    <script type="text/ng-template" id="/view-stats">
+        @Html.Partial("expences-stats")
+    </script>
+
+    @Scripts.Render("~/bundles/lib")
+    @Scripts.Render("~/bundles/app")
+
+</body>
+</html>

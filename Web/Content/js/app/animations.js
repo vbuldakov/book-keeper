@@ -1,0 +1,1 @@
+﻿angular.module('bk.animation', ['ngAnimate']);

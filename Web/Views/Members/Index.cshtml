@@ -1,0 +1,56 @@
+﻿@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Your personal book keeper</title>
+
+    <!-- Latest compiled and minified CSS -->
+    @*<link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css">*@
+    <!-- Optional theme -->
+    @*<link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap-theme.min.css">*@
+    @Styles.Render("~/Content/login")
+
+</head>
+<body>
+    <div class="container">
+        <div class="row">
+            <div class="offset1 span5">
+                @Html.Partial("_RegisterPartial", new Web.Models.Members.RegisterViewModel())
+            </div>
+            <div class="offset1 span4">
+                @Html.Partial("_LoginPartial", new Web.Models.Members.LoginViewModel())
+            </div>
+
+        </div>
+    </div>
+
+    <!-- Latest compiled and minified JavaScript -->
+    @*<script src="//netdna.bootstrapcdn.com/bootstrap/3.0.0/js/bootstrap.min.js"></script>*@
+    @Scripts.Render("~/bundles/login")
+    @*@Scripts.Render("~/bundles/jqueryval")*@
+
+    <script type="text/javascript">
+
+        var page = function () {
+            //Update that validator
+            $.validator.setDefaults({
+                highlight: function (element) {
+                    $(element).closest(".control-group").addClass("error");
+                },
+                unhighlight: function (element) {
+                    $element = $(element);
+                    if ($element.parent().find('span.field-validation-error').length == 0) {
+                        $element.closest(".control-group").removeClass("error");
+                    }
+                }
+            });
+        }();
+
+    </script>
+</body>
+</html>

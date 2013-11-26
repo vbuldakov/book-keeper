@@ -1,0 +1,30 @@
+﻿@model Web.Models.Members.MessageViewModel
+
+@if (Model != null)
+{
+    string alertClass = "alert-info";
+    switch (Model.Status)
+    {
+        case Web.Models.Members.MessageStatus.Info:
+            alertClass = "alert-info";
+            break;
+            
+        case Web.Models.Members.MessageStatus.Success:
+            alertClass = "alert-success";
+            break;
+            
+        case Web.Models.Members.MessageStatus.Warning:
+            alertClass = "alert-warning";
+            break;
+            
+        case Web.Models.Members.MessageStatus.Error:
+            alertClass = "alert-danger";
+            break;
+            
+        default:
+            alertClass = "alert-info";
+            break;
+    }
+    
+    <div class="alert @alertClass">@Model.Message</div>    
+}

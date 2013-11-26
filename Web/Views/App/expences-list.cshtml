@@ -1,0 +1,27 @@
+﻿<table class="table table-hover expences">
+    <thead>
+        <tr>
+            <th class="date">Date</th>
+            <th class="category">Category</th>
+            <th class="description">Description</th>
+            <th class="amount">Amount</th>
+            <th class="actions"></th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr ng-repeat="expence in expences" class="expence-row">
+            <td ng-click="edit(expence)">{{expence.Date | date:'dd/MM/yyyy'}}</td>
+            <td ng-click="edit(expence)">{{expence.Category}}</td>
+            <td class="comment" ng-click="edit(expence)">{{expence.Description}}</td>
+            <td class="amount" ng-click="edit(expence)">{{expence.Total | number:2}}</td>
+            <td class="actions">
+                <a href="#" ng-click="delete(expence.Id)"><i class="fa fa-trash-o"></i></a>
+            </td>
+        </tr>
+    </tbody>
+</table>
+<button class="btn btn-link" ng-show="hasMore" ng-click="loadMoreExpences()">Show more</button>
+
+<script type="text/ng-template" id="/expEditModal">
+    @Html.Partial("expence-edit-modal")
+</script>

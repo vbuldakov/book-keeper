@@ -1,0 +1,114 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{ECAB4523-9AF7-4B33-A647-95A2919C1EAA}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Services</RootNamespace>
+    <AssemblyName>Services</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Autofac">
+      <HintPath>..\packages\Autofac.3.1.1\lib\net40\Autofac.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Runtime.Caching" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+    <Reference Include="WebMatrix.WebData, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Cache\CacheKeyBuilder.cs" />
+    <Compile Include="Cache\CacheKeyBuilderFactory.cs" />
+    <Compile Include="Cache\CacheTagManagerExtensions.cs" />
+    <Compile Include="Cache\CacheValueWrapper.cs" />
+    <Compile Include="Cache\DefaultMemoryCache.cs" />
+    <Compile Include="Cache\ICache.cs" />
+    <Compile Include="Cache\ICacheKeyBuilder.cs" />
+    <Compile Include="Cache\ICacheKeyBuilderFactory.cs" />
+    <Compile Include="Cache\ICacheTagManager.cs" />
+    <Compile Include="Exceptions\InvalidInputException.cs" />
+    <Compile Include="Exceptions\ItemAlreadyExistException.cs" />
+    <Compile Include="Exceptions\ItemNotFoundException.cs" />
+    <Compile Include="Exceptions\ProjectException.cs" />
+    <Compile Include="Expences\Contracts\CreateCategoryContract.cs" />
+    <Compile Include="Expences\Contracts\GetUserExpenciesContract.cs" />
+    <Compile Include="Expences\DTO\DeleteExpenceDTO.cs" />
+    <Compile Include="Expences\DTO\CreateCategoryDTO.cs" />
+    <Compile Include="Expences\Contracts\CreateExpenceContract.cs" />
+    <Compile Include="Expences\DTO\CreateExpenceDTO.cs" />
+    <Compile Include="Expences\DTO\ExpenceDTO.cs" />
+    <Compile Include="Expences\DTO\ExpencesListDTO.cs" />
+    <Compile Include="Expences\DTO\FindExpenciesDTO.cs" />
+    <Compile Include="Expences\ExpenceCategoriesService.cs" />
+    <Compile Include="Expences\DTO\ExpenceCategoryDTO.cs" />
+    <Compile Include="Expences\ExpencesService.cs" />
+    <Compile Include="Expences\IExpenceCategoriesService.cs" />
+    <Compile Include="Expences\IExpencesService.cs" />
+    <Compile Include="ILifetimeManager.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Statistics\DTO\CategorySummaryDTO.cs" />
+    <Compile Include="Statistics\DTO\StatisticsDTO.cs" />
+    <Compile Include="Statistics\DTO\StatisticsRequestDTO.cs" />
+    <Compile Include="Statistics\DTO\SummaryStatisticsDTO.cs" />
+    <Compile Include="Statistics\IStatisticsService.cs" />
+    <Compile Include="Statistics\StatisticsService.cs" />
+    <Compile Include="Users\CreateUserDTO.cs" />
+    <Compile Include="Users\IUsersService.cs" />
+    <Compile Include="Users\LoginUserDTO.cs" />
+    <Compile Include="Users\UserDTO.cs" />
+    <Compile Include="Users\UsersService.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\DataAccess\DataAccess.csproj">
+      <Project>{4E839A6A-C3CF-4270-9B72-B67025866459}</Project>
+      <Name>DataAccess</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Domain\Domain.csproj">
+      <Project>{AEA3E42C-1976-48B9-8FB6-1E12F8FD98DE}</Project>
+      <Name>Domain</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Service References\" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

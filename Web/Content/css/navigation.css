@@ -1,0 +1,8 @@
+﻿#navigation p.pull-right {
+    margin-right: 20px;
+}
+
+#navigation .navbar-inner {
+    padding-left: 20px;
+    padding-right: 20px;
+}

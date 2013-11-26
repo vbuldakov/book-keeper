@@ -1,0 +1,60 @@
+﻿body {
+    padding-top: 70px;
+}
+
+.form-inline button {
+    vertical-align: bottom;
+}
+
+.form-inline .form-group {
+    width: 100%;
+}
+
+table.expences {
+    table-layout: fixed;
+}
+
+    table.expences .expence-row {
+        cursor: pointer;
+    }
+
+    table.expences tr .actions a {
+        opacity: 0.2;
+        color: inherit;
+    }
+
+    table.expences tr:hover .actions a {
+        opacity: 1;
+    }
+
+    table.expences .date {
+        width: 80px;
+    }
+
+    table.expences .category {
+        width: 170px;
+    }
+
+    table.expences .description {
+        overflow: hidden;
+    }
+
+    table.expences .amount {
+        width: 80px;
+        text-align: right;
+    }
+
+    table.expences .actions {
+        width: 20px;
+        text-align: center;
+    }
+
+.typeahead.dropdown-menu { 
+    z-index: 200000; 
+
+}
+
+.modal-body {
+    overflow-y: inherit;
+}
+

@@ -1,0 +1,34 @@
+﻿<div ng-controller="StatsCtrl">
+    <div class="row-fluid">
+        <div class="stats-block span4 well">
+            <table class="table table-condensed stats">
+                <thead>
+                    <tr>
+                        <th colspan="2">Summary</th>
+                    </tr>
+                </thead>
+                <tr>
+                    <td class="key">Total</td>
+                    <td class="value">{{stats.Summary.Total | number:2}}</td>
+                </tr>
+            </table>
+        </div>
+        <div class=" stats-block span8 well">
+            <table class="table table-condensed stats">
+                <thead>
+                    <tr>
+                        <th colspan="2">Top categories</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr ng-repeat="category in stats.TopCategories">
+                        <td class="key">{{category.Name}}</td>
+                        <td class="value">{{category.Total | number:2}}</td>
+                    </tr>
+                </tbody>
+
+            </table>
+
+        </div>
+    </div>
+</div>

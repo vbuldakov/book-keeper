@@ -1,0 +1,29 @@
+﻿@model Web.Models.Members.LoginViewModel
+
+@using (Ajax.BeginForm("Login", "Members", null, new AjaxOptions { InsertionMode = InsertionMode.Replace, UpdateTargetId = "form-login" }, new { id = "form-login" }))
+{
+    @Html.AntiForgeryToken()
+
+    <h2>Sign in</h2>
+    <div class="control-group">
+        @Html.LabelFor(m => m.Email, new { @class = "control-label"})
+        @Html.TextBoxFor(m => m.Email, new { @class = "form-control input-block-level", id = "login-email", placeholder = "Email address" })
+        <p class="help-block helper-font-small error">@Html.ValidationMessageFor(m => m.Email)</p>
+    </div>
+
+    <div class="control-group">
+        @Html.LabelFor(m => m.Password, new { @class = "control-label"})
+        @Html.PasswordFor(m => m.Password, new { @class = "form-control input-block-level", id = "login-password", placeholder = "Password" })
+        <p class="help-block helper-font-small error">@Html.ValidationMessageFor(m => m.Password)</p>
+    </div>
+
+    <label class="checkbox">
+        @Html.CheckBoxFor(m => m.Remember)
+        @Html.DisplayNameFor(m => m.Remember)
+    </label>
+
+    <button class="btn btn-large btn-success btn-block" type="submit">Sign in</button>
+
+    @Html.Partial("_MessagePartial", new ViewDataDictionary<Web.Models.Members.MessageViewModel>(Model.Message))
+}
+

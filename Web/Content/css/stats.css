@@ -1,0 +1,13 @@
+﻿table.stats {
+    table-layout: fixed;
+}
+
+    table.stats .value {
+        text-align: right;
+        width: 100px;
+        font-weight: bold;
+    }
+
+.row-fluid .stats-block {
+    min-height: 233px;
+}

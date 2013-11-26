@@ -1,0 +1,63 @@
+﻿<div class="row-fluid" ng-controller="MainCtrl">
+    <div class="span12" style="padding-bottom: 20px;">
+        <div class="btn-group">
+            <button 
+                type="button" 
+                class="btn" 
+                ng-class="{'btn-success' : $state.includes('expences')}" 
+                ng-disabled="$state.includes('expences')" 
+                ng-click="$state.go('expences')">Expences</button>
+            <button 
+                type="button" 
+                class="btn" 
+                ng-class="{'btn-success' : $state.includes('stats')}" 
+                ng-disabled="$state.includes('stats')" 
+                ng-click="$state.go('stats')">Statistics</button>
+        </div>
+
+        <div class="btn-group pull-right">
+            <button 
+                type="button" 
+                class="btn" 
+                value="week" 
+                ng-class="{'btn-primary' : params.periodType == 'week'}" 
+                ng-disabled="params.periodType == 'week'" 
+                ng-click="$state.go('.', {periodType : 'week'})">This week</button>
+            <button 
+                type="button" 
+                class="btn" 
+                value="month" 
+                ng-class="{'btn-primary' : params.periodType == 'month'}" 
+                ng-disabled="params.periodType == 'month'" 
+                ng-click="$state.go('.', {periodType : 'month'})">This month</button>
+            <button 
+                type="button" 
+                class="btn" 
+                value="lmonth" 
+                ng-class="{'btn-primary' : params.periodType == 'lmonth'}" 
+                ng-disabled="params.periodType == 'lmonth'" 
+                ng-click="$state.go('.', {periodType : 'lmonth'})">Last month</button>
+            <button 
+                type="button" 
+                class="btn" 
+                value="quarter" 
+                ng-class="{'btn-primary' : params.periodType == 'quarter'}" 
+                ng-disabled="params.periodType == 'quarter'" 
+                ng-click="$state.go('.', {periodType : 'quarter'})">This quarter</button>
+            <button 
+                type="button" 
+                class="btn" 
+                value="year" 
+                ng-class="{'btn-primary' : params.periodType == 'year'}" 
+                ng-disabled="params.periodType == 'year'" 
+                ng-click="$state.go('.', {periodType : 'year'})">This year</button>
+            <button 
+                type="button" 
+                class="btn" 
+                value="all" 
+                ng-class="{'btn-primary' : params.periodType == 'all'}" 
+                ng-disabled="params.periodType == 'all'" 
+                ng-click="$state.go('.', {periodType : 'all'})">All</button>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,93 @@
+﻿<div>
+    <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+        <h3>Edit expence</h3>
+    </div>
+    <div class="modal-body">
+        <form name="formEditExp">
+            <fieldset>
+                <div class="control-group">
+                    <label class="control-label">Date</label>
+
+                    <div class="input-append">
+                        <input type="text" 
+                            name="date"
+                            ng-model="selectedExpence.Date" 
+                            data-date-format="dd/mm/yyyy" 
+                            class="input-small" 
+                            bs-datepicker
+                            required/>
+                        <button type="button" 
+                            class="btn" 
+                            data-toggle="datepicker">
+                            <i class="icon-calendar"></i>
+                        </button>
+                    </div>
+                    <div class="help-block helper-font-small"
+                        ng-show="formEditExp.date.$dirty && formEditExp.date.$invalid">
+                        <span ng-show="formEditExp.date.$error.required">
+                            Date is required.
+                        </span>
+                    </div>
+                </div>
+
+                <div class="control-group" 
+                    ng-class="{error: formEditExp.category.$dirty && formEditExp.category.$invalid}">
+                    <label class="control-label">Category</label>
+                    <input type="text" 
+                        name="category" 
+                        class="form-control input-block-level" 
+                        ng-model="selectedExpence.Category" 
+                        bs-typeahead="filterCategories" 
+                        data-min-length="0" 
+                        required/>
+                    <div class="help-block helper-font-small"
+                        ng-show="formEditExp.category.$dirty && formEditExp.category.$invalid">
+                        <span ng-show="formEditExp.category.$error.required">
+                            Category is required.
+                        </span>
+                    </div>
+                </div>
+
+                <div class="control-group"
+                    ng-class="{error: formEditExp.description.$dirty && formEditExp.description.$invalid}">
+                    <label class="control-label">Add description</label>
+                    <input type="text" 
+                        name="description" 
+                        class="form-control input-block-level" 
+                        ng-model="selectedExpence.Description"
+                        required/>
+                    <div class="help-block helper-font-small" 
+                        ng-show="formEditExp.description.$dirty && formEditExp.description.$invalid"
+                        <span ng-show="formEditExp.description.$error.required">
+                            Description is required.
+                        </span>
+                    </div>
+                </div>
+
+                <div class="control-group"
+                    ng-class="{error: formEditExp.spent.$dirty && formEditExp.spent.$invalid}">
+                    <label class="control-label">Spent amount</label>
+                    <input type="text" 
+                        name="spent"
+                        class="form-control input-block-level"
+                        ng-model="selectedExpence.Total"
+                        required
+                        smart-float/>
+                    <div class="help-block helper-font-small" 
+                        ng-show="formEditExp.spent.$dirty && formEditExp.spent.$invalid"
+                        <span ng-show="formEditExp.spent.$error.float">
+                            Please enter valid float number.
+                        </span>
+
+                    </div>
+                </div>
+
+            </fieldset>
+        </form>
+    </div>
+    <div class="modal-footer">
+        <a href="#" class="btn" ng-click="closeEditDialog(hide)">Close</a>
+        <a href="#" class="btn btn-primary" ng-click="updateExpence(selectedExpence, hide)">Save changes</a>
+    </div>
+</div>

@@ -1,0 +1,32 @@
+﻿@model Web.Models.Members.RegisterViewModel
+
+@using (Ajax.BeginForm("Register", "Members", null, new AjaxOptions { InsertionMode = InsertionMode.Replace }, new { id = "form-register" }))
+{
+    @Html.AntiForgeryToken()
+
+    <h2>Create new account</h2>
+    <div class="control-group">
+        @Html.LabelFor(m => m.Name, new { @class = "control-label"} )
+        @Html.TextBoxFor(m => m.Name, new { @class = "form-control input-block-level", id = "name", placeholder = "Your name" })
+        <p class="help-block helper-font-small error">@Html.ValidationMessageFor(m => m.Name)</p>
+    </div>
+
+    <div class="control-group">
+        @Html.LabelFor(m => m.Email, new { @class = "control-label"} )
+        @Html.TextBoxFor(m => m.Email, new { @class = "form-control input-block-level", id = "reg-email", placeholder = "Email address" })
+        <p class="help-block helper-font-small error">@Html.ValidationMessageFor(m => m.Email)</p>
+    </div>
+
+    <div class="control-group">
+        @Html.LabelFor(m => m.Password, new { @class = "control-label"} )
+        @Html.PasswordFor(m => m.Password, new { @class = "form-control input-block-level", id = "reg-password", placeholder = "Password" })
+        @Html.PasswordFor(m => m.ConfirmPassword, new { @class = "form-control input-block-level", id = "reg-confirm-password", placeholder = "Confirm password" })
+        <p class="help-block helper-font-small error">@Html.ValidationMessageFor(m => m.Password)</p>
+        <p class="help-block helper-font-small error">@Html.ValidationMessageFor(m => m.ConfirmPassword)</p>
+    </div>
+
+    <button class="btn btn-large btn-primary btn-block" type="submit">Create</button>
+    
+    @Html.Partial("_MessagePartial", new ViewDataDictionary<Web.Models.Members.MessageViewModel>(Model.Message));
+}
+

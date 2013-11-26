@@ -1,0 +1,103 @@
+﻿
+        <form name="formNewExp" class="form-inline well" novalidate>
+            <fieldset>
+                <legend>New expence</legend>
+                <div class="row-fluid">
+                    <div class="span2">
+                        <div class="control-group">
+                            <label class="control-label">Select date</label>
+
+                            <div class="input-append">
+                                <input type="text" 
+                                    name="date"
+                                    ng-model="newExpence.Date" 
+                                    data-date-format="dd/mm/yyyy" 
+                                    class="input-small" 
+                                    data-date-today-highlight="true"
+                                    bs-datepicker
+                                    required/>
+                                <button type="button" 
+                                    class="btn" 
+                                    data-toggle="datepicker">
+                                    <i class="icon-calendar"></i>
+                                </button>
+                            </div>
+                            <div class="help-block helper-font-small"
+                                ng-show="formNewExp.date.$dirty && formNewExp.date.$invalid">
+                                <span ng-show="formNewExp.date.$error.required">
+                                    Date is required.
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="span3">
+                        <div class="control-group" 
+                            ng-class="{error: formNewExp.category.$dirty && formNewExp.category.$invalid}">
+                            <label class="control-label">Specify category</label>
+                            <input type="text" 
+                                name="category" 
+                                class="form-control input-block-level" 
+                                ng-model="newExpence.Category" 
+                                bs-typeahead="filterCategories" 
+                                data-min-length="0" 
+                                required/>
+                            <div class="help-block helper-font-small"
+                                ng-show="formNewExp.category.$dirty && formNewExp.category.$invalid">
+                                <span ng-show="formNewExp.category.$error.required">
+                                    Category is required.
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="span4">
+                        <div class="control-group"
+                            ng-class="{error: formNewExp.description.$dirty && formNewExp.description.$invalid}">
+                            <label class="control-label">Add description</label>
+                            <input type="text" 
+                                name="description" 
+                                class="form-control input-block-level" 
+                                ng-model="newExpence.Description"
+                                required/>
+                            <div class="help-block helper-font-small" 
+                                ng-show="formNewExp.description.$dirty && formNewExp.description.$invalid"
+                                <span ng-show="formNewExp.description.$error.required">
+                                    Description is required.
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="span2">
+                        <div class="control-group"
+                            ng-class="{error: formNewExp.spent.$dirty && formNewExp.spent.$invalid}">
+                            <label class="control-label">Spent amount</label>
+                            <input type="text" 
+                                name="spent"
+                                class="form-control input-block-level"
+                                ng-model="newExpence.Total"
+                                required
+                                smart-float/>
+                            <div class="help-block helper-font-small" 
+                                ng-show="formNewExp.spent.$dirty && formNewExp.spent.$invalid"
+                                <span ng-show="formNewExp.spent.$error.float">
+                                    Please enter valid float number.
+                                </span>
+
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="span1">
+                        <div class="control-group">
+                            <label>&nbsp;</label>
+                            <button type="submit" class="btn btn-success btn-default btn-block" 
+                                ng-click="add(newExpence)"
+                                ng-disabled="formNewExp.$invalid || operations.add.status == 'in progress'">{{operations.add.text}}</button>
+                        </div>
+                    </div>
+                </div>
+            </fieldset>
+        </form>
+        <div class="alert alert-error" ng-show="addCommandStatus == 'failed'">
+            An error occured during expence addition. Please try again later.
+            <button type="button" class="close" data-dismiss="alert">&times;</button>
+        </div>
